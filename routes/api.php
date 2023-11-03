@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AudioController;
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('files/upload', [\App\Http\Controllers\UploadController::class, 'upload']);
-Route::delete('files/{file}', [\App\Http\Controllers\UploadController::class, 'destroy']);
-Route::get('files/{file}', [\App\Http\Controllers\UploadController::class, 'show']);
-Route::get('files', [\App\Http\Controllers\UploadController::class, 'all']);
+//Route::post('files/upload', [\App\Http\Controllers\UploadController::class, 'upload']);
+//Route::delete('files/{file}', [\App\Http\Controllers\UploadController::class, 'destroy']);
+//Route::get('files/{file}', [\App\Http\Controllers\UploadController::class, 'show']);
+//Route::get('files', [\App\Http\Controllers\UploadController::class, 'all']);
 
+
+Route::apiResource('images', ImageController::class)->except('update');
+Route::apiResource('files', FileController::class)->except('update');
+Route::apiResource('videos', VideoController::class)->except('update');
+Route::apiResource('audios', AudioController::class)->except('update');
