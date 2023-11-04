@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('audios', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('name', 50);
-            $table->string('size');
+            $table->string('audio_name', 50);
+            $table->string('audio_path');
+            $table->string('audio_size');
             $table->enum('mime_type', ['audio/mpeg']);
             $table->timestamps();
         });
