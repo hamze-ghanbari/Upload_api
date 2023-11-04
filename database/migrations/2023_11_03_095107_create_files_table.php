@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('name', 50);
-            $table->string('size');
+            $table->string('file_name', 50);
+            $table->string('file_path');
+            $table->string('file_size');
             $table->enum('mime_type', ['text/csv', 'application/pdf', 'application/zip']);
             $table->timestamps();
         });
