@@ -23,8 +23,13 @@ use Illuminate\Support\Facades\Route;
 //Route::get('files/{file}', [\App\Http\Controllers\UploadController::class, 'show']);
 //Route::get('files', [\App\Http\Controllers\UploadController::class, 'all']);
 
-
-Route::apiResource('images', ImageController::class)->except('update');
+Route::controller(ImageController::class)->group(function () {
+ Route::get('images', 'all');
+ Route::get('images/{image}', 'show');
+ Route::post('images/upload', 'upload');
+ Route::get('images/{image}', 'destroy');
+});
+//Route::apiResource('images', ImageController::class)->except('update');
 Route::apiResource('files', FileController::class)->except('update');
 Route::apiResource('videos', VideoController::class)->except('update');
 Route::apiResource('audios', AudioController::class)->except('update');
