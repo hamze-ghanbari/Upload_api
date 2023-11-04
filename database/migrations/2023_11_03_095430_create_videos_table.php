@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('name', 50);
-            $table->string('size');
+            $table->string('video_name', 50);
+            $table->string('video_path');
+            $table->string('video_size');
             $table->enum('mime_type', ['video/mp4']);
             $table->timestamps();
         });
