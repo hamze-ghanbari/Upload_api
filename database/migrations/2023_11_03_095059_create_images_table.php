@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('name', 50);
-            $table->string('size');
+            $table->string('image_name', 50);
+            $table->string('image_path');
+            $table->string('image_size');
             $table->enum('mime_type', ['image/jpeg', 'image/png', 'image/webp']);
             $table->timestamps();
         });
